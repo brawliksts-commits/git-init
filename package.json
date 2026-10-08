@@ -1,0 +1,8 @@
+// Электрон-оболочка: открывает index.html в окне, чтобы получить exe без браузера.
+const { app, BrowserWindow } = require('electron');
+function create() {
+  const w = new BrowserWindow({ width: 1366, height: 800, autoHideMenuBar: true, backgroundColor: '#0d1b26' });
+  w.loadFile('index.html');
+}
+app.whenReady().then(create);
+app.on('window-all-closed', () => app.quit());
